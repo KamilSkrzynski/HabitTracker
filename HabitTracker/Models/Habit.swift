@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Habit {
+struct Habit: Codable {
     
     var habitName: String
     var habitDescription: String
     var completionInfo: [HabitCompletion]
 }
 
-struct HabitCompletion {
+struct HabitCompletion: Codable {
     
     var completionDate: Date
 }

@@ -10,20 +10,19 @@ import SwiftUI
 struct AddHabitView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    
-    @State var habitName: String = ""
-    @State var habitDescription: String = ""
+    @StateObject private var vm = HabitsViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                TextField("Enter habit name", text: $habitName)
+                TextField("Enter habit name", text: $vm.habitName)
                     .textFieldStyle(.roundedBorder)
                 
-                TextField("Enter habit description", text: $habitDescription)
+                TextField("Enter habit description", text: $vm.habitDescription)
                     .textFieldStyle(.roundedBorder)
                 Button {
-                    
+                    vm.createHabit()
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Save")
                 }

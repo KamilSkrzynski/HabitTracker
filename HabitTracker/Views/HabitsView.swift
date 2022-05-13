@@ -9,13 +9,17 @@ import SwiftUI
 
 struct HabitsView: View {
     
-    @StateObject private var vm = HabitsViewModel()
+    @ObservedObject private var vm = HabitsViewModel()
     
     var body: some View {
         NavigationView {
-            VStack {
+            ScrollView {
                 ForEach(vm.habits, id: \.habitName) { habit in
-                    HabitView(habit: habit)
+                    NavigationLink {
+                        HabitDetailView(habit: habit)
+                    } label: {
+                        HabitView(habit: habit)
+                    }
                 }
             }
             .padding()

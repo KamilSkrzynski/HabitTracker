@@ -27,8 +27,9 @@ struct HabitView: View {
                 .foregroundColor(.gray)
             
         }
-        .padding(.horizontal)
+        .padding()
         .frame(maxWidth: .infinity)
+        .background(RoundedRectangle(cornerRadius: 10).stroke())
     }
 }
 
