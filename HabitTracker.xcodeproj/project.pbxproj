@@ -7,16 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3710AE12282E9B7900CE5BC6 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3710AE11282E9B7900CE5BC6 /* Habit.swift */; };
+		3710AE17282E9C9C00CE5BC6 /* HabitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3710AE16282E9C9C00CE5BC6 /* HabitsViewModel.swift */; };
+		3710AE1A282E9CD100CE5BC6 /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3710AE19282E9CD100CE5BC6 /* HabitView.swift */; };
+		3710AE1C282EA10800CE5BC6 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3710AE1B282EA10800CE5BC6 /* AddHabitView.swift */; };
 		37914F26282D289300C5CA23 /* HabitTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37914F25282D289300C5CA23 /* HabitTrackerApp.swift */; };
-		37914F28282D289300C5CA23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37914F27282D289300C5CA23 /* ContentView.swift */; };
+		37914F28282D289300C5CA23 /* HabitsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37914F27282D289300C5CA23 /* HabitsView.swift */; };
 		37914F2A282D289600C5CA23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37914F29282D289600C5CA23 /* Assets.xcassets */; };
 		37914F2D282D289600C5CA23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37914F2C282D289600C5CA23 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3710AE11282E9B7900CE5BC6 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		3710AE16282E9C9C00CE5BC6 /* HabitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsViewModel.swift; sourceTree = "<group>"; };
+		3710AE19282E9CD100CE5BC6 /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
+		3710AE1B282EA10800CE5BC6 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 		37914F22282D289300C5CA23 /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37914F25282D289300C5CA23 /* HabitTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerApp.swift; sourceTree = "<group>"; };
-		37914F27282D289300C5CA23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		37914F27282D289300C5CA23 /* HabitsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsView.swift; sourceTree = "<group>"; };
 		37914F29282D289600C5CA23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37914F2C282D289600C5CA23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -32,6 +40,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3710AE13282E9B7D00CE5BC6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3710AE11282E9B7900CE5BC6 /* Habit.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3710AE14282E9B8200CE5BC6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3710AE16282E9C9C00CE5BC6 /* HabitsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3710AE15282E9B8E00CE5BC6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3710AE18282E9CB900CE5BC6 /* Reusable */,
+				37914F27282D289300C5CA23 /* HabitsView.swift */,
+				3710AE1B282EA10800CE5BC6 /* AddHabitView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3710AE18282E9CB900CE5BC6 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				3710AE19282E9CD100CE5BC6 /* HabitView.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
 		37914F19282D289300C5CA23 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +93,10 @@
 		37914F24282D289300C5CA23 /* HabitTracker */ = {
 			isa = PBXGroup;
 			children = (
+				3710AE15282E9B8E00CE5BC6 /* Views */,
+				3710AE14282E9B8200CE5BC6 /* ViewModels */,
+				3710AE13282E9B7D00CE5BC6 /* Models */,
 				37914F25282D289300C5CA23 /* HabitTrackerApp.swift */,
-				37914F27282D289300C5CA23 /* ContentView.swift */,
 				37914F29282D289600C5CA23 /* Assets.xcassets */,
 				37914F2B282D289600C5CA23 /* Preview Content */,
 			);
@@ -137,8 +181,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37914F28282D289300C5CA23 /* ContentView.swift in Sources */,
+				3710AE12282E9B7900CE5BC6 /* Habit.swift in Sources */,
+				3710AE17282E9C9C00CE5BC6 /* HabitsViewModel.swift in Sources */,
+				37914F28282D289300C5CA23 /* HabitsView.swift in Sources */,
+				3710AE1A282E9CD100CE5BC6 /* HabitView.swift in Sources */,
 				37914F26282D289300C5CA23 /* HabitTrackerApp.swift in Sources */,
+				3710AE1C282EA10800CE5BC6 /* AddHabitView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
