@@ -9,43 +9,45 @@ import SwiftUI
 
 struct HabitDetailView: View {
     
-    let habit: Habit
+    @ObservedObject var vm: HabitsViewModel
+    var index: Int
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
     
-    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                Text(habit.habitDescription)
+                Text(self.vm.habits[index].habitDescription)
                     .font(.title3)
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
                 Divider()
-                Text(habit.completionInfo.count > 1 ? "\(habit.completionInfo.count) times done." : "\(habit.completionInfo.count) time done.")
+                Text(self.vm.habits[index].completionInfo.count > 1 ? "\(self.vm.habits[index].completionInfo.count) times done." : "\(self.vm.habits[index].completionInfo.count) time done.")
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
-                
+                Spacer()
+                    .frame(height: 20)
                 Text("COMPLETION DATES")
                     .font(.caption2)
                     .fontWeight(.bold)
                     .foregroundColor(.gray)
-                LazyVGrid(columns: columns, spacing: 5) {
-                    ForEach(habit.completionInfo, id: \.completionDate) { completionInfo in
+                LazyVGrid(columns: columns, spacing: 20) {
+                    ForEach(self.vm.habits[index].completionInfo, id: \.completionDate) { completionInfo in
                         HabitCompletionInfoView(habitCompletionInfo: completionInfo)
                     }
                 }
             }
         }
         .padding()
-        .navigationTitle(habit.habitName)
+        .navigationTitle(self.vm.habits[index].habitName)
         .toolbar {
             Button {
-                
+                let completion = HabitCompletion(completionDate: Date())
+                self.vm.habits[index].completionInfo.append(completion)
             } label: {
                 Text("Mark as completed")
             }
@@ -55,31 +57,16 @@ struct HabitDetailView: View {
 
 struct HabitDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let habit = Habit(
-            habitName: "Learn iOS Dev",
-            habitDescription: "Habit to keep learning iOS development.",
-            completionInfo: [
-                HabitCompletion(
-                    completionDate: Date()
-                ),
-                HabitCompletion(
-                    completionDate: Date()
-                ),
-                HabitCompletion(
-                    completionDate: Date()
-                ),
-                HabitCompletion(
-                    completionDate: Date()
-                )
-            ]
-        )
+        let index = 0
+        let vm = HabitsViewModel()
+
         Group {
             NavigationView {
-                HabitDetailView(habit: habit)
+                HabitDetailView(vm: vm, index: index)
                     .preferredColorScheme(.light)
             }
             NavigationView {
-                HabitDetailView(habit: habit)
+                HabitDetailView(vm: vm, index: index)
                     .preferredColorScheme(.dark)
             }
         }

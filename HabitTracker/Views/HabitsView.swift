@@ -9,16 +9,16 @@ import SwiftUI
 
 struct HabitsView: View {
     
-    @ObservedObject private var vm = HabitsViewModel()
+    @ObservedObject var vm = HabitsViewModel()
     
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(vm.habits, id: \.habitName) { habit in
+                ForEach(0..<vm.habits.count, id: \.self) { habitIndex in
                     NavigationLink {
-                        HabitDetailView(habit: habit)
+                        HabitDetailView(vm: self.vm, index: habitIndex)
                     } label: {
-                        HabitView(habit: habit)
+                        HabitView(habit: vm.habits[habitIndex])
                     }
                 }
             }

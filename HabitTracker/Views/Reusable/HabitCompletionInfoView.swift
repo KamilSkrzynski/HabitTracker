@@ -19,7 +19,7 @@ struct HabitCompletionInfoView: View {
             Text(habitCompletionInfo.completionDate.formatted(.dateTime.hour().minute()))
         }
         .padding()
-        .background(RoundedRectangle(cornerRadius: 10).stroke())
+        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("primaryColor")))
     }
 }
 

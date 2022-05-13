@@ -29,7 +29,7 @@ struct HabitView: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background(RoundedRectangle(cornerRadius: 10).stroke())
+        .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("primaryColor")))
     }
 }
 
