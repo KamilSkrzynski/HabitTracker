@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HabitsViewModel: ObservableObject {
+class HabitsViewModel: ObservableObject {
     
     @Published var habits: [Habit] {
         didSet {

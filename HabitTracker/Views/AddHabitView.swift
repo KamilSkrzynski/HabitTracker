@@ -10,7 +10,7 @@ import SwiftUI
 struct AddHabitView: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @StateObject private var vm = HabitsViewModel()
+    @ObservedObject private var vm = HabitsViewModel()
     
     var body: some View {
         NavigationView {

@@ -25,7 +25,7 @@ struct HabitDetailView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)
                 Divider()
-                Text(self.vm.habits[index].completionInfo.count > 1 ? "\(self.vm.habits[index].completionInfo.count) times done." : "\(self.vm.habits[index].completionInfo.count) time done.")
+                Text(self.vm.habits[index].completionInfo.count > 1 ? "\(self.vm.habits[index].completionInfo.count) times done." : self.vm.habits[index].completionInfo.count == 0 ? "Never done yet" : "\(self.vm.habits[index].completionInfo.count) time done.")
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundColor(.gray)

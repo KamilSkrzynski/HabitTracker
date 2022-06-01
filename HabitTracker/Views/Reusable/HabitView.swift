@@ -22,7 +22,7 @@ struct HabitView: View {
                 .fontWeight(.semibold)
                 .foregroundColor(.gray)
             Divider()
-            Text(habit.completionInfo.count > 1 ? "\(habit.completionInfo.count) times done." : "\(habit.completionInfo.count) time done.")
+            Text(habit.completionInfo.count > 1 ? "\(habit.completionInfo.count) times done." : habit.completionInfo.count == 0 ? "Never done yet" : "\(habit.completionInfo.count) time done.")
                 .font(.body)
                 .foregroundColor(.gray)
             

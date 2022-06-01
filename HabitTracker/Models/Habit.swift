@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Habit: Codable {
+struct Habit: Codable, Identifiable {
     
+    var id = UUID().uuidString
     var habitName: String
     var habitDescription: String
     var completionInfo: [HabitCompletion]
