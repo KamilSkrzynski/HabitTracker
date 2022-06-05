@@ -50,6 +50,7 @@ struct HabitDetailView: View {
                 self.vm.habits[index].completionInfo.append(completion)
             } label: {
                 Text("Mark as completed")
+                    .fontWeight(.semibold)
             }
         }
     }
