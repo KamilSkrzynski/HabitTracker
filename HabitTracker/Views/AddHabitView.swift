@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+struct CustomTextFieldStyle: TextFieldStyle {
+    func _body(configuration: TextField<Self._Label>) -> some View {
+            configuration
+            .padding()
+            .background(RoundedRectangle(cornerRadius: 10).foregroundColor(Color("primaryColor")))
+    }
+}
+
 struct AddHabitView: View {
     
     @Environment(\.presentationMode) var presentationMode
@@ -14,17 +22,19 @@ struct AddHabitView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            VStack(spacing: 15) {
                 TextField("Enter habit name", text: $vm.habitName)
-                    .textFieldStyle(.roundedBorder)
+                    .textFieldStyle(CustomTextFieldStyle())
                 
                 TextField("Enter habit description", text: $vm.habitDescription)
-                    .textFieldStyle(.roundedBorder)
+                    .textFieldStyle(CustomTextFieldStyle())
+                    
                 Button {
                     vm.createHabit()
                     presentationMode.wrappedValue.dismiss()
                 } label: {
                     Text("Save")
+                        .font(.title3)
                 }
                 .buttonStyle(.borderedProminent)
                 .tint(.blue)
@@ -46,6 +56,11 @@ struct AddHabitView: View {
 
 struct AddHabitView_Previews: PreviewProvider {
     static var previews: some View {
-        AddHabitView()
+        Group {
+            AddHabitView()
+                .preferredColorScheme(.light)
+            AddHabitView()
+                .preferredColorScheme(.dark)
+        }
     }
 }
